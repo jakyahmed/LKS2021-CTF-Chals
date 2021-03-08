@@ -41,6 +41,9 @@ XP Bin
 
   c. Membuat parser dengan acuan `INFO2` file
 
+- Setelah berhasil melakukan file recovery, kita akan memperoleh Folder berisi Git repository.
+- Cukup lakukan `git checkout 1fbb80ca78d06037604ee6f911a09ce96fe7f2bd` untuk kembali ke commit sebelum `flag.txt` dihapus.
+
 ## Flag
 
 LKS2021{revisiting_old_fashioned_recycle_bin}
