@@ -1,0 +1,1 @@
+LKS2021{ez_square_number_modulus}
