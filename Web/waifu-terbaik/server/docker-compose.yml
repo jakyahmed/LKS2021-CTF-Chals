@@ -1,0 +1,24 @@
+version: '3.2'
+services:
+ waifu-terbaik-app:
+   build:
+     context: .
+     dockerfile: Dockerfile.app
+   restart: on-failure
+   networks:
+     - waifu-terbaik-network
+
+  waifu-terbaik-nginx:
+   build:
+     context: .
+     dockerfile: Dockerfile.nginx
+   restart: on-failure
+   ports:
+     - "11012:80"
+   networks:
+     - waifu-terbaik-network
+
+networks:
+  waifu-terbaik-network:
+    driver: overlay
+    attachable: true
