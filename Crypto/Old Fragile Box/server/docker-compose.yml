@@ -1,0 +1,10 @@
+version: '3'
+services:
+  ofb:
+    build: .
+    restart: on-failure
+    environment:
+      - SECRET_FLAG=LKS2021{ofb_goes_brrrrrrruh}
+      - IV=RANDOM-IV-a35672
+    ports:
+      - 20001:5000
