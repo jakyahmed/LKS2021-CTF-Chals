@@ -22,11 +22,11 @@ user_notes = OrderedDict()
 stdout = Unbuffered(stdout)
 
 def sanitize_input(text):
-    blacklist = '(\(\))|(\.)|(\[)|(\])|'
-    blacklist += '(\")|(__import__)|(chr)|'
-    blacklist += '(os)|(subprocess)|(exec)|(eval)|'
-    blacklist += '(execfile)|(compile)|(popen)(system)|'
-    blacklist += '(class)|(base)|(init)|(globals)|(builtins)'
+    blacklist  = r'(\(\))|(\.)|(\[)|(\])|(\")|(\\)|(__)|'
+    blacklist += r'(execfile)|(compile)|(popen)|(system)|(getattr)|'
+    blacklist += r'(class)|(base)|(init)|(globals)|(builtins)|(open)|'
+    blacklist += r'(os)|(subprocess)|(exec)|(eval)|(read)|(help)|(exit)|'
+    blacklist += r'(getitem)|(import)|(chr)|(input)|(flag)|(locals)|(quit)'
 
     if re.findall(blacklist, text):
         return False
