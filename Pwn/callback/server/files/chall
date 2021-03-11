@@ -63,7 +63,7 @@ def edit_note():
         stdout.write("Get away. Those characters are not allowed")
 
 def list_note():
-    cols = ['Address', 'Content']
+    cols = ['Address', 'Name']
     rows = '{0:<20}{1:<5}'
     maps = zip(map(id, user_notes), user_notes.keys())
 
