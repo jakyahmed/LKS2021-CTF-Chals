@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>Kalkulator</title>
+</head>
+<body>
+    <div class="w3-container w3-center">
+        <h1>Kalkulator</h1>
+        <h5>Apa yang anda harapkan dari sebuah kalkulator?</h5>
+        <form action="" method="POST">
+            <input type="text" placeholder="1+2" name="expression">
+            <input type="submit" value="Hitung">
+        </form>
+        <p>{{ result | safe }}</p>
+    </div>
+
+</body>
+</html>

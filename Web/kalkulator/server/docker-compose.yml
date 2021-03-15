@@ -1,0 +1,24 @@
+version: '3.2'
+services:
+ kalkulator-app:
+   build:
+     context: .
+     dockerfile: Dockerfile.app
+   restart: on-failure
+   networks:
+     - kalkulator-network
+
+  kalkulator-nginx:
+   build:
+     context: .
+     dockerfile: Dockerfile.nginx
+   restart: on-failure
+   ports:
+     - "11013:80"
+   networks:
+     - kalkulator-network
+
+networks:
+  kalkulator-network:
+    driver: overlay
+    attachable: true
