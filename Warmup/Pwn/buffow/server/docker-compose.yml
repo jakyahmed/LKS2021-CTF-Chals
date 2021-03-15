@@ -1,0 +1,7 @@
+version: '3'
+services:
+  pwn:
+    build: .
+    restart: on-failure
+    ports:
+      - 30001:5000
