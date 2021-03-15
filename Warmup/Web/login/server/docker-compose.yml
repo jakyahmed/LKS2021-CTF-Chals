@@ -1,0 +1,23 @@
+version: '3'
+services:
+ login-app:
+   build:
+     context: .
+     dockerfile: Dockerfile.app
+   restart: on-failure
+   networks:
+     - login-network
+
+  login-nginx:
+   build:
+     context: .
+     dockerfile: Dockerfile.nginx
+   restart: on-failure
+   ports:
+     - "12010:80"
+   networks:
+     - login-network
+
+networks:
+  login-network:
+    driver: bridge
