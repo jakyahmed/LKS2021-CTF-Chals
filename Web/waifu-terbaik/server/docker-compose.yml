@@ -1,4 +1,4 @@
-version: '3.2'
+version: '3'
 services:
  waifu-terbaik-app:
    build:
@@ -20,5 +20,4 @@ services:
 
 networks:
   waifu-terbaik-network:
-    driver: overlay
-    attachable: true
+    driver: bridge

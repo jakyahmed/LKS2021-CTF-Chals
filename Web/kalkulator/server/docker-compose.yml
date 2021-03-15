@@ -1,23 +1,23 @@
 version: '3'
 services:
- wangy-app:
+ kalkulator-app:
    build:
      context: .
      dockerfile: Dockerfile.app
    restart: on-failure
    networks:
-     - wangy-network
+     - kalkulator-network
 
-  wangy-nginx:
+  kalkulator-nginx:
    build:
      context: .
      dockerfile: Dockerfile.nginx
    restart: on-failure
    ports:
-     - "11011:80"
+     - "11013:80"
    networks:
-     - wangy-network
+     - kalkulator-network
 
 networks:
-  wangy-network:
+  kalkulator-network:
     driver: bridge
