@@ -1,4 +1,4 @@
-version: '3.2'
+version: '3'
 services:
  kalkulator-app:
    build:
@@ -20,5 +20,4 @@ services:
 
 networks:
   kalkulator-network:
-    driver: overlay
-    attachable: true
+    driver: bridge
