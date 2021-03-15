@@ -1,0 +1,114 @@
+#!/usr/bin/env python3
+from collections import OrderedDict
+from os import system
+from sys import stdout
+
+import re
+import ctypes
+
+class Unbuffered(object):
+    def __init__(self, stream):
+        self.stream = stream
+    def write(self, data):
+        self.stream.write(data)
+        self.stream.flush()
+    def writelines(self, datas):
+        self.stream.writelines(datas + '\n')
+        self.stream.flush()
+    def __getattr__(self, attr):
+        return getattr(self.stream, attr)
+
+user_notes = OrderedDict()
+stdout = Unbuffered(stdout)
+
+def sanitize_input(text):
+    blacklist  = r'(\(\))|(\.)|(\[)|(\])|(\")|(\\)|(__)|'
+    blacklist += r'(execfile)|(compile)|(popen)|(system)|(getattr)|'
+    blacklist += r'(class)|(base)|(init)|(globals)|(builtins)|(open)|'
+    blacklist += r'(os)|(subprocess)|(exec)|(eval)|(read)|(help)|(exit)|'
+    blacklist += r'(getitem)|(import)|(chr)|(input)|(flag)|(locals)|(quit)'
+
+    if re.findall(blacklist, text):
+        return False
+
+    return True
+
+def get_shell():
+    system('/bin/sh')
+
+def add_note():
+    name = input('Name: ')
+    content = input('Content: ')
+
+    if sanitize_input(content):
+        user_notes[name] = content
+        stdout.write('Successfully added a note')
+    else:
+        stdout.write("Get away. Those characters are not allowed")
+
+def edit_note():
+    try:
+        address = int(input('Address: '))
+    except ValueError:
+        return
+
+    content = input('Content: ')
+
+    if sanitize_input(content):
+        instance = ctypes.cast(address, ctypes.py_object)   
+        user_notes[instance.value] = eval(f"'{content}'")
+
+        stdout.write('Successfully edited a note')
+    else:
+        stdout.write("Get away. Those characters are not allowed")
+
+def list_note():
+    cols = ['Address', 'Name']
+    rows = '{0:<20}{1:<5}'
+    maps = zip(map(id, user_notes), user_notes.keys())
+
+    stdout.writelines(rows.format(*cols))
+    for value in maps:
+        stdout.writelines(rows.format(*value))
+
+def view_note():
+    try:
+        address = int(input('Address: '))
+    except ValueError:
+        return
+
+    instance = ctypes.cast(address, ctypes.py_object)
+
+    stdout.write('Content: ')
+    if hasattr(instance.value, '__call__'):
+        return stdout.writelines(instance.value())
+
+    value = user_notes[instance.value]
+    stdout.writelines(value)
+
+if __name__ == '__main__':
+    
+    while True:
+        stdout.writelines('=============')
+        stdout.writelines('1. Add note')
+        stdout.writelines('2. List note')
+        stdout.writelines('3. View note')
+        stdout.writelines('4. Edit note')
+        stdout.writelines('=============')
+
+        try:
+            option = int(input('Option: '))
+            stdout.writelines('')
+        except ValueError:
+            pass
+        else:
+            if option == 1:
+                add_note()
+            elif option == 2:
+                list_note()
+            elif option == 3:
+                view_note()
+            elif option == 4:
+                edit_note()
+        finally:
+            stdout.writelines('')
