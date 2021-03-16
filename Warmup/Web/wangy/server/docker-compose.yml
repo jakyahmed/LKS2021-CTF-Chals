@@ -1,0 +1,23 @@
+version: '3'
+services:
+  wangy-rce-app:
+    build:
+      context: .
+      dockerfile: Dockerfile.app
+    restart: on-failure
+    networks:
+      - wangy-rce-network
+
+  wangy-rce-nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile.nginx
+    restart: on-failure
+    ports:
+      - "10002:80"
+    networks:
+      - wangy-rce-network
+
+networks:
+  wangy-rce-network:
+    driver: bridge
