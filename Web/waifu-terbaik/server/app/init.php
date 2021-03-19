@@ -18,3 +18,4 @@ $sql = "CREATE TABLE IF NOT EXISTS flags (
 $conn->exec($sql);
 
 $sql = "INSERT INTO flags (value) VALUES ('LKS2021{waifumu_integral_satu_per_t_dt_mas}')";
+$conn->exec($sql);

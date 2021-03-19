@@ -1,0 +1,17 @@
+#!/usr/bin/env python2
+from sys import stdout
+
+if __name__ == '__main__':
+    stdout.writelines('Selamat datang di aplikasi kalkulator Ai-chan.\n')
+    stdout.writelines('Anda dapat dengan mudah menghitung suatu operasi, misalnya 1+2.\n\n')
+
+    try:
+        num = input('Masukan operasi (misal 1+2): ')
+        stdout.writelines('')
+    except ValueError:
+        pass
+    else:
+        stdout.writelines('Ai-chan: Halo salam kenal, saya adalah sebuah robot yang diciptakan untuk membantumu berhitung. ^_^\n')
+        stdout.writelines('Ai-chan: Hasil perhitungan dari operasi yang telah kamu inputkan adalah {}. UwU\n'.format(num))
+    finally:
+        stdout.writelines('')

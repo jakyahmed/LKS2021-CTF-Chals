@@ -1,0 +1,7 @@
+version: '3'
+services:
+  callback:
+    build: .
+    restart: on-failure
+    ports:
+      - 30002:5000

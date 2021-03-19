@@ -8,6 +8,8 @@ WORKDIR /app
 
 RUN pip install -r requirements.txt
 
+RUN echo "LKS2021{dikala_kalkulatorku_bertindak_disitulah_servermu_meledak}" > /flag
+
 USER www
 
 EXPOSE 5000
