@@ -22,7 +22,7 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 # Install extensions
 RUN docker-php-ext-install pdo_sqlite mbstring zip exif pcntl
 
-RUN rm bestwaifu.db
+RUN rm databaseadmin1337.db
 RUN php init.php
 RUN rm init.php
 

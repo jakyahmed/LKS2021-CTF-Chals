@@ -59,9 +59,6 @@ if (isset($_GET['character'])) {
     // filter
     $chara = str_replace(';', '', $chara);
     $chara = str_replace(' ', '', $chara);
-    $chara = str_replace('select', '', $chara);
-    $chara = str_replace('case', '', $chara);
-    $chara = str_replace('substr', '', $chara);
     
     $sql = "SELECT * FROM characters WHERE name = '$chara'";
     $results = $conn->query($sql);

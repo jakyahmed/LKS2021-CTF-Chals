@@ -14,13 +14,13 @@ def index():
         if ex == None or ex == '':
             return 'tidak ada data yang dikirim'
         
-        blacklist = [
-            '[', ']', '|'
-        ]
+        # blacklist = [
+        #     '[', ']', '|'
+        # ]
 
-        for value in blacklist:
-            if value in ex:
-                return 'terdapat simbol terlarang, hekel dilarang masuk'
+        # for value in blacklist:
+        #     if value in ex:
+        #         return 'terdapat simbol terlarang, hekel dilarang masuk'
         
         res = "Hasil: {}".format('{{' + ex + '}}')
 
