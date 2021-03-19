@@ -1,6 +1,6 @@
 version: '3'
 services:
- kalkulator-app:
+  kalkulator-app:
    build:
      context: .
      dockerfile: Dockerfile.app
@@ -14,7 +14,7 @@ services:
      dockerfile: Dockerfile.nginx
    restart: on-failure
    ports:
-     - "11013:80"
+     - "10003:80"
    networks:
      - kalkulator-network
 

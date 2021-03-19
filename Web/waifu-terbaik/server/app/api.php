@@ -3,6 +3,7 @@
 require_once 'db.php';
 $db = new Database();
 $conn = $db->getConnection();
+$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 function str_random($length) 
 { 

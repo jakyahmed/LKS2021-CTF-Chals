@@ -22,6 +22,8 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 # Install extensions
 RUN docker-php-ext-install pdo_sqlite mbstring zip exif pcntl
 
+COPY ./app /var/www
+
 RUN rm bestwaifu.db
 RUN php init.php
 RUN rm init.php
@@ -30,8 +32,10 @@ RUN rm init.php
 RUN groupadd -g 1000 www
 RUN useradd -u 1000 -ms /bin/bash -g www www
 
-# Copy existing application directory contents
-COPY ./app /var/www
+RUN chown www:www bestwaifu.db
+RUN chown www:www .
+RUN chmod 777 bestwaifu.db
+
 
 # Change current user to www
 USER www

@@ -1,6 +1,6 @@
 version: '3'
 services:
- waifu-terbaik-app:
+  waifu-terbaik-app:
    build:
      context: .
      dockerfile: Dockerfile.app
@@ -14,7 +14,7 @@ services:
      dockerfile: Dockerfile.nginx
    restart: on-failure
    ports:
-     - "11012:80"
+     - "10002:80"
    networks:
      - waifu-terbaik-network
 
