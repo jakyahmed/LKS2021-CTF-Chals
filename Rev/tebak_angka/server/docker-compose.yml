@@ -1,0 +1,7 @@
+version: '3'
+services:
+  tebak_angka:
+    build: .
+    restart: on-failure
+    ports:
+      - 30002:5000
