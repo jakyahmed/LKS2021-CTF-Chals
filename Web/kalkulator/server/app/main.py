@@ -14,14 +14,6 @@ def index():
         if ex == None or ex == '':
             return 'tidak ada data yang dikirim'
         
-        # blacklist = [
-        #     '[', ']', '|'
-        # ]
-
-        # for value in blacklist:
-        #     if value in ex:
-        #         return 'terdapat simbol terlarang, hekel dilarang masuk'
-        
         res = "Hasil: {}".format('{{' + ex + '}}')
 
         return render_template('index.html', result = render_template_string(res))

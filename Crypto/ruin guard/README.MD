@@ -7,4 +7,7 @@ Halo tabibito, saya menemukan sebuah pesan misterius pada ruin guard yang berada
 ---
 
 ## Penjelasan Penyelesaian Soal
-- Intinya ya encoding pake base 3
+- Merubah sebuah string dari bentuk basis 3 menjadi basis 10 (decimal)
+- Pertama, kembalikan pemetaan karakter dari . menjadi 0, 2 menjadi 1, dan 3 menjadi 2
+- Setelah itu baru ubah ke basis 10, lalu nanti akan berbentuk kode ascii
+- kode ascii tersebut dapat langsung diubah ke karakter yang sesuai pada ascii table
